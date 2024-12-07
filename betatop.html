@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BetaTop - Phone with Pink Top</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .phone {
+      width: 320px;
+      height: 600px;
+      background-color: #000;
+      border-radius: 30px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .status-bar {
+      background-color: pink;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+      padding: 5px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .screen {
+      flex: 1;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;
+    }
+
+    .home-button {
+      width: 50px;
+      height: 50px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin: 10px auto;
+      border: 2px solid #999;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .home-button:active {
+      background-color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <div class="status-bar">10:30 AM | BetaTop App</div>
+    <div class="screen">
+      <p>Welcome to BetaTop!</p>
+    </div>
+    <div class="home-button"></div>
+  </div>
+</body>
+</html>
