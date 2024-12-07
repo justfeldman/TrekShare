@@ -3,75 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BetaTop - Phone with Pink Top</title>
+  <title>BetaTop - iPhone Top</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f4f4f4;
     }
 
-    .phone {
+    .iphone-top {
       width: 320px;
-      height: 600px;
+      height: 30px;
       background-color: #000;
-      border-radius: 30px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .status-bar {
-      background-color: pink;
       color: #fff;
-      font-size: 14px;
-      text-align: center;
-      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
-    .screen {
-      flex: 1;
+    .left-icons, .right-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    .signal-bars {
+      width: 20px;
+      height: 10px;
+      background: linear-gradient(to right, #fff 20%, transparent 20%);
+      background-size: 4px 100%;
+    }
+
+    .carrier {
+      margin-left: 5px;
+      font-size: 12px;
+    }
+
+    .center-time {
+      font-size: 14px;
+    }
+
+    .wifi-icon {
+      width: 14px;
+      height: 10px;
+      margin-right: 5px;
+      border: 1px solid #fff;
+      border-radius: 2px;
+      background: linear-gradient(to top, #fff, transparent);
+    }
+
+    .battery-icon {
+      width: 20px;
+      height: 10px;
+      border: 1px solid #fff;
+      border-radius: 2px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .battery-level {
+      width: 16px;
+      height: 8px;
+      background-color: #0f0;
+      margin-right: 1px;
+    }
+
+    .battery-icon:before {
+      content: '';
+      position: absolute;
+      right: -3px;
+      width: 2px;
+      height: 5px;
       background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      overflow-y: auto;
-    }
-
-    .home-button {
-      width: 50px;
-      height: 50px;
-      background-color: #ccc;
-      border-radius: 50%;
-      margin: 10px auto;
-      border: 2px solid #999;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .home-button:active {
-      background-color: #bbb;
+      border-radius: 1px;
     }
   </style>
 </head>
 <body>
   <div class="phone">
-    <div class="status-bar">10:30 AM | BetaTop App</div>
+    <div class="iphone-top">
+      <div class="left-icons">
+        <div class="signal-bars"></div>
+        <span class="carrier">Carrier</span>
+      </div>
+      <div class="center-time">10:30 AM</div>
+      <div class="right-icons">
+        <div class="wifi-icon"></div>
+        <div class="battery-icon">
+          <div class="battery-level"></div>
+        </div>
+      </div>
+    </div>
     <div class="screen">
       <p>Welcome to BetaTop!</p>
     </div>
     <div class="home-button"></div>
   </div>
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const formattedTime = `${hours % 12 || 12}:${minutes < 10 ? '0' : ''}${minutes} ${hours >= 12 ? 'PM' : 'AM'}`;
+      document.querySelector('.center-time').textContent = formattedTime;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime(); // Initialize immediately
+  </script>
 </body>
 </html>
