@@ -116,6 +116,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
+    }
+
+    .home-button img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%; /* Ensures the logo fits inside the circular button */
     }
 
     .home-button:active {
@@ -143,7 +150,9 @@
       <p>Welcome to TrekShare!</p>
       <p>What do you need help with?</p>
     </div>
-    <div class="home-button"></div>
+    <div class="home-button">
+      <img src="Treksharelogo.png" alt="Home Logo">
+    </div>
   </div>
   <script>
     function updateTime() {
@@ -154,9 +163,12 @@
       document.querySelector('.center-time').textContent = formattedTime;
     }
 
+    document.querySelector('.home-button').addEventListener('click', () => {
+      window.location.href = 'beta.html'; // Redirects to beta.html
+    });
+
     setInterval(updateTime, 1000);
     updateTime(); // Initialize immediately
   </script>
 </body>
 </html>
-
