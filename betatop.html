@@ -1,174 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BetaTop - iPhone Top</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .iphone-top {
-      width: 320px;
-      height: 30px;
-      background-color: #000;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 10px;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .left-icons, .right-icons {
-      display: flex;
-      align-items: center;
-    }
-
-    .top-logo {
-      height: 20px; /* Keeps the logo small */
-      width: auto; /* Maintains the aspect ratio */
-      margin-right: 5px; /* Adds spacing between logo and signal bars */
-    }
-
-    .signal-bars {
-      width: 20px;
-      height: 10px;
-      background: linear-gradient(to right, #fff 20%, transparent 20%);
-      background-size: 4px 100%;
-    }
-
-    .carrier {
-      margin-left: 5px;
-      font-size: 12px;
-    }
-
-    .center-time {
-      font-size: 14px;
-    }
-
-    .wifi-icon {
-      width: 14px;
-      height: 10px;
-      margin-right: 5px;
-      border: 1px solid #fff;
-      border-radius: 2px;
-      background: linear-gradient(to top, #fff, transparent);
-    }
-
-    .battery-icon {
-      width: 20px;
-      height: 10px;
-      border: 1px solid #fff;
-      border-radius: 2px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      overflow: hidden;
-    }
-
-    .battery-level {
-      width: 16px;
-      height: 8px;
-      background-color: #0f0;
-      margin-right: 1px;
-    }
-
-    .battery-icon:before {
-      content: '';
-      position: absolute;
-      right: -3px;
-      width: 2px;
-      height: 5px;
-      background-color: #fff;
-      border-radius: 1px;
-    }
-
-    .screen {
-      flex: 1;
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .home-button {
-      width: 50px;
-      height: 50px;
-      background-color: #ccc;
-      border-radius: 50%;
-      margin: 10px auto;
-      border: 2px solid #999;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .home-button img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%; /* Ensures the logo fits inside the circular button */
-    }
-
-    .home-button:active {
-      background-color: #bbb;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Startup Pitch</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="phone">
-    <div class="iphone-top">
-      <div class="left-icons">
-        <img src="Easylogo.png" alt="Logo" class="top-logo" />
-        <div class="signal-bars"></div>
-        <span class="carrier">Carrier</span>
-      </div>
-      <div class="center-time">10:30 AM</div>
-      <div class="right-icons">
-        <div class="wifi-icon"></div>
-        <div class="battery-icon">
-          <div class="battery-level"></div>
-        </div>
-      </div>
-    </div>
-    <div class="screen">
-      <p>Welcome to TrekShare!</p>
-      <p>What do you need help with?</p>
-    </div>
-    <div class="home-button">
-      <img src="Treksharelogo.png" alt="Home Logo">
-    </div>
-  </div>
-  <script>
-    function updateTime() {
-      const now = new Date();
-      const hours = now.getHours();
-      const minutes = now.getMinutes();
-      const formattedTime = `${hours % 12 || 12}:${minutes < 10 ? '0' : ''}${minutes} ${hours >= 12 ? 'PM' : 'AM'}`;
-      document.querySelector('.center-time').textContent = formattedTime;
-    }
+    <header>
+        <h1>Grow Your Business With Us</h1>
+        <p>We bring you new customers. No cost, no risk – just results.</p>
+    </header>
 
-    document.querySelector('.home-button').addEventListener('click', () => {
-      window.location.href = 'beta.html'; // Redirects to beta.html
-    });
+    <main>
+        <section class="pitch">
+            <h2>How It Works</h2>
+            <p>
+                Partner with us to promote your business to a growing audience.  
+                All we ask is a small discount for our users in exchange for sending you motivated, paying customers.
+            </p>
+        </section>
 
-    setInterval(updateTime, 1000);
-    updateTime(); // Initialize immediately
-  </script>
+        <section class="benefits">
+            <h2>Why Partner With Us?</h2>
+            <ul>
+                <li>✅ <strong>New Customers:</strong> Increase foot traffic and sales.</li>
+                <li>✅ <strong>Free Marketing:</strong> We promote your business at no upfront cost.</li>
+                <li>✅ <strong>Low Risk:</strong> Offer a simple discount – nothing more.</li>
+            </ul>
+        </section>
+
+        <section class="contact">
+            <h2>Get Started Today</h2>
+            <p>Fill out the form below, and we’ll get in touch!</p>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                
+                <label for="business">Business Name</label>
+                <input type="text" id="business" name="business" placeholder="Your Business" required>
+                
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                <button type="submit">Partner With Us</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Your Startup Name. All rights reserved.</p>
+    </footer>
 </body>
 </html>
