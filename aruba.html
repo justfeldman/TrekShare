@@ -77,6 +77,18 @@
             font-size: 14px;
             color: #888;
         }
+        .highlights-log {
+            margin-top: 20px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .highlight-item {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
     </style>
 </head>
 <body>
@@ -93,8 +105,8 @@
         <!-- Highlight Section -->
         <div class="highlight-section">
             <div style="font-size: 14px; font-weight: 500;">Today’s Highlight 🌟</div>
-            <input type="text" class="text-input" placeholder="Enter your highlight here...">
-            <div class="button">Save My Highlight</div>
+            <input type="text" class="text-input" id="highlightInput" placeholder="Enter your highlight here...">
+            <div class="button" id="saveButton">Save My Highlight</div>
         </div>
 
         <!-- Progress Summary -->
@@ -103,17 +115,55 @@
             <div class="summary-boxes">
                 <div class="box">
                     <div style="font-size: 14px; color: rgba(0, 0, 0, 0.5);">Streak</div>
-                    <div style="font-size: 20px; font-weight: 500;">3 days in a row!</div>
+                    <div style="font-size: 20px; font-weight: 500;" id="streakCounter">3 days in a row!</div>
                 </div>
                 <div class="box">
                     <div style="font-size: 14px; color: rgba(0, 0, 0, 0.5);">Most Recent Highlight</div>
-                    <div style="font-size: 20px; font-weight: 500;">Highlight text here</div>
+                    <div style="font-size: 20px; font-weight: 500;" id="recentHighlight">Highlight text here</div>
                 </div>
             </div>
+        </div>
+
+        <!-- Highlights Log -->
+        <div class="highlights-log" id="highlightsLog">
+            <h3>Past Highlights</h3>
+            <div id="highlightItems"></div>
         </div>
 
         <!-- Footer -->
         <div class="footer">Gratitude turns what we have into enough.</div>
     </div>
+
+    <script>
+        // JavaScript to handle submission and display
+        const saveButton = document.getElementById('saveButton');
+        const highlightInput = document.getElementById('highlightInput');
+        const recentHighlight = document.getElementById('recentHighlight');
+        const highlightItems = document.getElementById('highlightItems');
+        const streakCounter = document.getElementById('streakCounter');
+        let streak = 3; // Initial streak
+
+        saveButton.addEventListener('click', () => {
+            const highlightText = highlightInput.value.trim();
+
+            if (highlightText) {
+                // Update most recent highlight
+                recentHighlight.textContent = highlightText;
+
+                // Add the highlight to the log
+                const newItem = document.createElement('div');
+                newItem.classList.add('highlight-item');
+                newItem.textContent = highlightText;
+                highlightItems.prepend(newItem);
+
+                // Clear the input field
+                highlightInput.value = '';
+
+                // Update the streak
+                streak++;
+                streakCounter.textContent = `${streak} days in a row!`;
+            }
+        });
+    </script>
 </body>
 </html>
