@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightlife Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        #map { height: 100vh; }
+        .custom-marker {
+            background: url('https://i.imgur.com/your-icon.png') no-repeat center;
+            background-size: cover;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize Map
+        var map = L.map('map').setView([-33.8688, 151.2093], 12); // Sydney Coordinates
+
+        // Add Dark-Themed Tile Layer (Mapbox)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Sample Bar Locations
+        var bars = [
+            { name: "Hunter's Hill Hotel", lat: -33.8406, lng: 151.1615 },
+            { name: "The Bay & Diner", lat: -33.9475, lng: 151.2635 },
+            { name: "Matraville Hotel", lat: -33.9670, lng: 151.2265 }
+        ];
+
+        // Add Custom Markers
+        bars.forEach(bar => {
+            L.marker([bar.lat, bar.lng]).addTo(map)
+                .bindPopup(`<b>${bar.name}</b><br>Click for details.`);
+        });
+    </script>
+</body>
+</html>
